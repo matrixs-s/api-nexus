@@ -1,5 +1,5 @@
 {
-  "name": "rest-graph-api-documentation",
+  "name": "api-nexus",
   "version": "1.0.0",
   "description": "Generation of API documentation for the GraphQl and Rest API",
   "scripts": {
@@ -37,5 +37,13 @@
   "devDependencies": {
     "nodemon": "1.18.4"
   },
-  "keywords": []
+  "keywords": [
+    "rest-api",
+    "graph-api",
+    "api-documentation",
+    "documentation-from-introspection-url",
+    "documentation-from-introspection-json",
+    "documentation-from-rest-json",
+    "dynamic-api-documentation"
+  ]
 }

@@ -30,8 +30,6 @@ server.use(
   express.static(path.resolve(__dirname, "..", "dist"), { maxAge: "30d" })
 );
 
-console.log("**************************", process.env.DOC_USER);
-
 // Define API routes
 server.post("/login", (req, res, next) => {
   req.session.isLoggedIn = true;
@@ -88,5 +86,5 @@ server.get("*", async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Server is listening on port :: ${PORT}`);
+  console.log(`The document server is listening on port :: ${PORT}`);
 });

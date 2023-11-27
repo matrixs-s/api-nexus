@@ -5,7 +5,7 @@ import GraphTypeResponse from "./GraphTypeResponse";
 import { useDocumentContext } from "../../../appContext"; // Adjust the path as needed
 
 export default GraphTypes = ({ apiContent, type }) => {
-  console.log("-- [GraphTypes] ", apiContent, "[Types]", type);
+  // console.log("-- [GraphTypes] ", apiContent, "[Types]", type);
   const { graphMetaJson: customDataset = {} } = useDocumentContext();
 
   const ApiDescription = ({ apiBlock }) => {

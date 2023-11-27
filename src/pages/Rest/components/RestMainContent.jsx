@@ -9,7 +9,7 @@ import "../../../css/TreeView.css";
 import "../../../css/Rest.css";
 
 const RestMainContent = ({ apiContent, type, focusRef }) => {
-  console.log("[RestMainContent]", apiContent, "-- RestMain-Group-type", type);
+  // console.log("[RestMainContent]", apiContent, "-- RestMain-Group-type", type);
   
   const lowerCamelToTitleCase = (lowerCamel) => {
     return lowerCamel

@@ -8,7 +8,7 @@ import GraphResponseDetails from "./GraphResponseDetails";
 import "../../../css/Graph.css";
 
 const GraphMainContent = ({ apiContent, type, focusRef }) => {
-  console.log("[GraphMainContent]", apiContent, "Graphql-group-options", type);
+  // console.log("[GraphMainContent]", apiContent, "Graphql-group-options", type);
   const { graphMetaJson: customDataset = {} } = useDocumentContext();
 
   const ApiDescription = ({ apiBlock }) => {

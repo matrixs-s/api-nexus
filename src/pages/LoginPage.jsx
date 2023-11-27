@@ -27,7 +27,7 @@ const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
       }
 
       // Simulate login with a POST request
-      const response = await axios.post("/doc/login", { user, password });
+      const response = await axios.post("/login", { user, password });
 
       if (response.status === 200) {
         onLoginSuccess(true);

@@ -9,10 +9,10 @@ const DocumentApiGroups = ({
   handleSourceType,
   handleListItemClick,
 }) => {
-  console.log(
-    "[DocumentApiGroups] --> [Options] --> [QUERY,MUTATION,SUBSCRIPTION],[GET,PUT,POST]",
-    isGraph
-  );
+  // console.log(
+  //   "[DocumentApiGroups] --> [Options] --> [QUERY,MUTATION,SUBSCRIPTION],[GET,PUT,POST]",
+  //   isGraph
+  // );
   const [expandedItem, setExpandedItem] = useState(
     Object.keys(listGroups || {})?.[0] || null
   );
