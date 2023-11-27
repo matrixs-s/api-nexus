@@ -1,0 +1,226 @@
+{
+  "endpoints": {
+    "GET": {
+      "getProjectDetails": {
+        "name": "getProjectDetails",
+        "isDeprecated": false,
+        "apiDescription": "Get project details",
+        "outputType": "String",
+        "method": "GET",
+        "url": "api/projects",
+        "headers": {
+          "x-api-key": "21432139847290402402190"
+        },
+        "parameters": {
+          "pathParams": {
+            "id": {
+              "type": "String",
+              "description": "Project ID"
+            }
+          },
+          "queryParams": {
+            "projectId": {
+              "type": "Number",
+              "description": "Project ID"
+            },
+            "userId": {
+              "type": "Number",
+              "description": "User ID"
+            }
+          }
+        },
+        "response": {
+          "data": {
+            "name": "projectDetails",
+            "status": 200
+          }
+        }
+      },
+      "getUsers": {
+        "name": "getUsers",
+        "isDeprecated": false,
+        "apiDescription": "Get a list of users",
+        "outputType": "Array",
+        "method": "GET",
+        "url": "api/users",
+        "headers": {
+          "x-api-key": "21432139847290402402190"
+        },
+        "parameters": {
+          "queryParams": {
+            "role": {
+              "type": "String",
+              "description": "User role"
+            }
+          }
+        },
+        "response": {
+          "data": {
+            "name": "userList",
+            "status": 200
+          }
+        }
+      }
+    },
+    "PUT": {
+      "updateProject": {
+        "name": "updateProject",
+        "isDeprecated": false,
+        "apiDescription": "Update project details",
+        "method": "PUT",
+        "url": "api/project",
+        "parameters": {
+          "pathParams": {
+            "id": {
+              "type": "String",
+              "description": "Project ID"
+            }
+          },
+          "bodyParams": {
+            "name": {
+              "type": "String",
+              "argDescription": "New project name"
+            },
+            "description": {
+              "type": "String",
+              "argDescription": "New project description"
+            }
+          },
+          "response":{
+            "data": {
+              "message": "updated project successfully",
+              "status": 200
+            }
+          }
+        }
+      },
+      "updateUser": {
+        "name": "updateUser",
+        "isDeprecated": false,
+        "apiDescription": "Update user details",
+        "method": "PUT",
+        "url": "api/user",
+        "parameters": {
+          "pathParams": {
+            "id": {
+              "type": "Number",
+              "description": "User ID"
+            }
+          },
+          "bodyParams": {
+            "name": {
+              "type": "String",
+              "argDescription": "New user name"
+            },
+            "email": {
+              "type": "String",
+              "argDescription": "New user email"
+            }
+          }
+        },
+        "response":{
+          "data": {
+            "message": "updated user successfully",
+            "status": 200
+          }
+        }
+      }
+    },
+    "POST": {
+      "createProject": {
+        "name": "createProject",
+        "isDeprecated": false,
+        "apiDescription": "Create a new project",
+        "method": "POST",
+        "url": "api/project",
+        "parameters": {
+          "bodyParams": {
+            "name": {
+              "type": "String",
+              "argDescription": "Project name"
+            },
+            "description": {
+              "type": "String",
+              "argDescription": "Project description"
+            }
+          }
+        },
+        "response":{
+          "data": {
+            "id": 700 ,
+            "status": 200
+          }
+        }
+      },
+      "createUser": {
+        "name": "createUser",
+        "isDeprecated": false,
+        "apiDescription": "Create a new user",
+        "method": "POST",
+        "url": "api/user",
+        "parameters": {
+          "bodyParams": {
+            "name": {
+              "type": "String",
+              "argDescription": "User name"
+            },
+            "email": {
+              "type": "String",
+              "argDescription": "User email"
+            }
+          }
+        },
+        "response":{
+          "data": {
+            "id": 200,
+            "status": 200
+          }
+        }
+      }
+    },
+    "DELETE": {
+      "deleteProject": {
+        "name": "deleteProject",
+        "isDeprecated": false,
+        "apiDescription": "Delete a project",
+        "method": "DELETE",
+        "url": "api/project",
+        "parameters": {
+          "pathParams": {
+            "id": {
+              "type": "String",
+              "description": "Project ID"
+            }
+          }
+        },
+        "response":{
+          "data": {
+            "message": "Deleted project successfully",
+            "status": 200
+          }
+        }
+      },
+      "deleteUser": {
+        "name": "deleteUser",
+        "isDeprecated": false,
+        "apiDescription": "Delete a user",
+        "method": "DELETE",
+        "url": "api/user",
+        "parameters": {
+          "pathParams": {
+            "id": {
+              "type": "Number",
+              "description": "User ID"
+            }
+          }
+        },
+        "response":{
+          "data": {
+            "message": "Deleted user successfully",
+            "status": 200
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/* TreeView.css */
+
+.tree-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #333;
+    color: #ccc;
+    overflow: auto;
+    height: auto;
+    border-radius: 8px;
+}
+
+.syntax-highlighter {
+    flex: 1;
+    margin: 16px;
+}
+
+.tree-view {
+    flex: 1;
+    padding: 16px;
+}
+
+.node-label {
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    color: #61afef;
+}
+
+.node-label.expanded {
+    color: #98c379;
+}
+
+.node-list {
+    list-style-type: none;
+    padding-left: 30px;
+    border-left: 1px solid #444;
+    text-align: left;
+}
+
+.node-list li {
+    margin-bottom: 4px;
+}
+
+/* Custom styling for expand and collapse icons */
+.node-label::before {
+    /* content: '►'; */
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.node-label.expanded::before {
+    /* content: '▼'; */
+    margin-right: 4px;
+}
