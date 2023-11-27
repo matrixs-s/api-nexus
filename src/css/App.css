@@ -1,0 +1,55 @@
+/* App.css */
+
+.container {
+    /* background: #8080801c; */
+    text-align: center;
+    height: 100vh;
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    margin: auto;
+}
+
+.cardTitle {
+    text-align: center;
+    padding: 2%;
+
+}
+
+.cardText {
+    text-align: justify;
+    padding-bottom: 1%;
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: clip;
+    margin-bottom: 2%;
+}
+
+.cardRow {
+    padding-bottom: 2%;
+}
+
+.cardCol {
+    text-align: center;
+    margin: auto;
+}
+
+.innerCard {
+    width: 18rem;
+    margin: auto;
+    padding: 12% 5%;
+}
+
+.cardTextHeight {
+    height: 200px;
+    overflow: auto;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.list-group-item.special:hover {
+    background-color: #1d1dc6;
+    color: white;
+}

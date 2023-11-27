@@ -1,2 +1,3 @@
-# api-nexus
-Create the API Documentation for the REST &amp; GRAPH APIs
+# react-ssr-example 🐔
+
+A simple React server-side rendering example using express and esbuild
