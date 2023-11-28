@@ -1,13 +1,13 @@
 import express from "express";
 import path from "path";
 import session from "express-session";
-import { configLoader } from "api-nexus/server/configLoader.js";
+import { configLoader } from "./configLoader.js";
 
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 // Load the server routes from this file
-import AppRoutes from "api-nexus/src/routes.jsx";
+import AppRoutes from "../src/routes.jsx";
 require('dotenv').config();
 
 const server = express();
