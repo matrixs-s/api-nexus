@@ -26,7 +26,7 @@ const DocumentApiNames = ({
               <div key={`api_name_${index}`}>
                 <ListGroup.Item
                   className="special"
-                  onClick={() => onButtonClick(index)}
+                  onClick={() => onButtonClick(index, apiNames, expandedItem)}
                 >
                   {apiName}
                 </ListGroup.Item>

@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import { introspectionTypeToString } from "../../../helpers/typeParser";
 import "../../../css/Graph.css";
 
-const ApiParameters = ({ apiBlock, graphMetaJson }) => {
+const ApiParameters = ({ apiBlock, graphMetaJson, typeOnClick }) => {
   const { args = [], name: apiName } = apiBlock;
   const argDescriptions = graphMetaJson?.[apiName]?.args ?? [];
 
@@ -30,9 +30,11 @@ const ApiParameters = ({ apiBlock, graphMetaJson }) => {
                   <td>{index + 1}</td>
                   <td>
                     {arg?.name}{" "}
-                    <i className="graph-heading">
-                      {introspectionTypeToString(arg?.type)}
-                    </i>
+                    <a href="#" onClick={() => typeOnClick(arg?.type)}>
+                      <i className="graph-heading">
+                        {introspectionTypeToString(arg?.type)}
+                      </i>
+                    </a>
                   </td>
                   <td className="text-justify">
                     {argDescriptions?.[arg?.name]?.description ??

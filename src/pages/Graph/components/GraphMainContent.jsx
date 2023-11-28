@@ -7,7 +7,7 @@ import GraphQueryDetails from "./GraphQueryDetails";
 import GraphResponseDetails from "./GraphResponseDetails";
 import "../../../css/Graph.css";
 
-const GraphMainContent = ({ apiContent, type, focusRef }) => {
+const GraphMainContent = ({ apiContent, type, focusRef, typeOnClick }) => {
   // console.log("[GraphMainContent]", apiContent, "Graphql-group-options", type);
   const { graphMetaJson: customDataset = {} } = useDocumentContext();
 
@@ -31,7 +31,7 @@ const GraphMainContent = ({ apiContent, type, focusRef }) => {
     );
   };
 
-  const ApiOutput = ({ apiBlock }) => (
+  const ApiOutput = ({ apiBlock, typeOnClick }) => (
     <div className="mb-3">
       <div>
         <h5>
@@ -42,15 +42,17 @@ const GraphMainContent = ({ apiContent, type, focusRef }) => {
         <span>
           it <i style={{ color: "blue" }}>returns</i> output of type{" "}
           {/* Default output type is JSON */}
-          <span className="graph-heading">
-            {introspectionTypeToString(
-              apiBlock?.type || {
-                kind: "SCALAR",
-                name: "JSON",
-                ofType: null,
-              }
-            )}
-          </span>
+          <a href="#" onClick={() => typeOnClick(apiBlock?.type)}>
+            <span className="graph-heading">
+              {introspectionTypeToString(
+                apiBlock?.type || {
+                  kind: "SCALAR",
+                  name: "JSON",
+                  ofType: null,
+                }
+              )}
+            </span>
+          </a>
         </span>
       </div>
     </div>
@@ -73,10 +75,14 @@ const GraphMainContent = ({ apiContent, type, focusRef }) => {
                       </Card.Title>
                       <div>
                         <ApiDescription apiBlock={apiContent?.[apiBlock]} />
-                        <ApiOutput apiBlock={apiContent?.[apiBlock]} />
+                        <ApiOutput
+                          apiBlock={apiContent?.[apiBlock]}
+                          typeOnClick={typeOnClick}
+                        />
                         <ApiParameters
                           apiBlock={apiContent?.[apiBlock]}
                           graphMetaJson={customDataset?.[type?.toLowerCase()]}
+                          typeOnClick={typeOnClick}
                         />
                       </div>
                     </Col>

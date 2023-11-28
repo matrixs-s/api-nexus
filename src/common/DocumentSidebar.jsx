@@ -12,11 +12,30 @@ const DocumentSidebar = ({ isGraph, listOptions }) => {
   const [outputType, setOutputType] = useState(null);
   const listRef = useRef(null);
 
-  const handleListItemClick = (index) => {
+  const handleListItemClick = useCallback((index, apiNames, expandedItem) => {
+    if (expandedItem) {
+      setOperationType({ [expandedItem]: apiNames });
+    }
     const listItem = listRef?.current?.children?.[index] ?? null;
     if (listItem) {
       listItem.scrollIntoView({ behavior: "auto", block: "start" });
     }
+  }, []);
+
+  const typeOnClick = (type) => {
+    const typeName = type?.name ?? type?.ofType?.name;
+    const result = Object.keys(outputType?.dataTypes || {}).findIndex(
+      (dataType) => {
+        return dataType === typeName;
+      }
+    );
+    setOperationType(outputType);
+    setTimeout(() => {
+      const listItem = listRef?.current?.children?.[result] ?? null;
+      if (listItem) {
+        listItem.scrollIntoView({ behavior: "auto", block: "start" });
+      }
+    }, 0);
   };
 
   const lowerCamelToTitleCase = (lowerCamel) => {
@@ -88,6 +107,7 @@ const DocumentSidebar = ({ isGraph, listOptions }) => {
                 apiContent={Object.values(operationType)[0]}
                 type={Object.keys(operationType)[0]}
                 focusRef={listRef}
+                typeOnClick={typeOnClick}
               />
             ) : (
               <h3 className="text-danger loading-message">

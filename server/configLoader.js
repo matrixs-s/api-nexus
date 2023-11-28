@@ -31,7 +31,7 @@ query IntrospectionQuery {
       }
     }
   }
-  
+
   fragment FullType on __Type {
     kind
     name
@@ -60,7 +60,7 @@ query IntrospectionQuery {
       ...TypeRef
     }
   }
-  
+
   fragment InputValue on __InputValue {
     name
     description
@@ -69,7 +69,7 @@ query IntrospectionQuery {
     }
     defaultValue
   }
-  
+
   fragment TypeRef on __Type {
     kind
     name
@@ -85,7 +85,7 @@ query IntrospectionQuery {
         }
       }
     }
-  }  
+  }
 `;
 let [operationResult, isOperationExecuting] = [null, false];
 
@@ -136,18 +136,32 @@ const loadMetaDataFromFile = async (params, filePath, includeExample) => {
       if (includeExample) {
         try {
           mkdirSync(rootPath, { recursive: true });
-          const fullFilePath = path.join(
-            process.cwd(),
-            "node_modules/api-nexus/examples",
-            // "examples",
-            filePath
-          );
-          const sampleData = require(fullFilePath);
-          fsPromises.writeFile(
-            `${rootPath}/${filePath}`,
-            JSON.stringify(sampleData, null, 4)
-          );
-          return sampleData;
+          try {
+            const packagePath = path.dirname(
+              require.resolve("node_modules/api-nexus/examples")
+            );
+            if (packagePath) {
+              const fullFilePath = path.join(
+                process.cwd(),
+                "node_modules/api-nexus/examples",
+                filePath
+              );
+              const sampleData = require(fullFilePath);
+              fsPromises.writeFile(
+                `${rootPath}/${filePath}`,
+                JSON.stringify(sampleData, null, 4)
+              );
+              return sampleData;
+            }
+          } catch (error) {
+            const fullFilePath = path.join(process.cwd(), "examples", filePath);
+            const sampleData = require(fullFilePath);
+            fsPromises.writeFile(
+              `${rootPath}/${filePath}`,
+              JSON.stringify(sampleData, null, 4)
+            );
+            return sampleData;
+          }
         } catch (exampleLoadError) {
           console.log("exampleLoadError", exampleLoadError);
           return {};
