@@ -1,0 +1,375 @@
+{
+    "query": {
+        "getUser": {
+            "apiDescription": "Adding the custom description for query from the [graphMetaData.json]",
+            "isDeprecated": false,
+            "args": {
+                "userId": {
+                    "description": "Adding the userId description from the [graphMetaData.json]"
+                },
+                "projectId": {
+                    "description": "Adding the projectId description from the [graphMetaData.json]"
+                }
+            },
+            "response": {
+                "data": {
+                    "getUser": {
+                        "id": 200,
+                        "name": "Sammy"
+                    }
+                }
+            }
+        }
+    },
+    "mutation": {
+        "createUser": {
+            "apiDescription": "Adding the custom description for mutation from the [graphMetaData.json]",
+            "isDeprecated": false,
+            "args": {
+                "input": {
+                    "description": "Adding the custom description for UserInput from the [graphMetaData.json]"
+                }
+            },
+            "response": {
+                "data": {
+                    "createUser": {
+                        "id": 200,
+                        "name": "Sammy"
+                    }
+                }
+            }
+        },
+        "userInvite": {
+            "apiDescription": "To change the scrollbar color and width when overflow occurs, you can use the ::-webkit-scrollbar pseudo-element to style the scrollbar in WebKit-based browsers (like Chrome and Safari). Unfortunately, this is not a standard CSS property, so it won't work in all browsers. Here's an example",
+            "isDeprecated": false,
+            "args": {
+                "email": {
+                    "description": "To change the scrollbar color and width when overflow occurs, you can use the ::-webkit-scrollbar pseudo-element to style the scrollbar in WebKit-based browsers (like Chrome and Safari). Unfortunately, this is not a standard CSS property, so it won't work in all browsers. Here's an example"
+                },
+                "role": {
+                    "description": "To change the scrollbar color and width when overflow occurs, you can use the ::-webkit-scrollbar pseudo-element to style the scrollbar in WebKit-based browsers (like Chrome and Safari). Unfortunately, this is not a standard CSS property, so it won't work in all browsers. Here's an example"
+                }
+            },
+            "response": {
+                "data": {
+                    "userInvite": [
+                        {
+                            "id": "0001",
+                            "type": "donut",
+                            "name": "Cake",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    },
+                                    {
+                                        "id": "1002",
+                                        "type": "Chocolate"
+                                    },
+                                    {
+                                        "id": "1003",
+                                        "type": "Blueberry"
+                                    },
+                                    {
+                                        "id": "1004",
+                                        "type": "Devil's Food"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5005",
+                                    "type": "Sugar"
+                                },
+                                {
+                                    "id": "5007",
+                                    "type": "Powdered Sugar"
+                                },
+                                {
+                                    "id": "5006",
+                                    "type": "Chocolate with Sprinkles"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "0002",
+                            "type": "donut",
+                            "name": "Raised",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5005",
+                                    "type": "Sugar"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "0003",
+                            "type": "donut",
+                            "name": "Old Fashioned",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    },
+                                    {
+                                        "id": "1002",
+                                        "type": "Chocolate"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "subscription": {
+        "onUserUpdate": {
+            "apiDescription": "Adding the custom description for subscription from the [graphMetaData.json]",
+            "isDeprecated": false,
+            "args": {
+                "userId": {
+                    "description": "Adding the userId description from the [graphMetaData.json]"
+                }
+            },
+            "response": {
+                "data": {
+                    "onUserUpdate": {
+                        "id": 200
+                    }
+                }
+            }
+        }
+    },
+    "datatypes": {
+        "CalloutsInput": {
+            "apiDescription": "Adding the custom description for query from the [graphMetaData.json]",
+            "isDeprecated": false,
+            "args": {
+                "name": {
+                    "description": "EEEEEEEEEEE Adding the userId description from the [graphMetaData.json]"
+                },
+                "stateName": {
+                    "description": "Adding the projectId description from the [graphMetaData.json]"
+                }
+            },
+            "response": {
+                "data": {
+                    "getUser": {
+                        "id": 200,
+                        "name": "Sammy"
+                    }
+                }
+            }
+        },
+        "OrderBy": {
+            "apiDescription": "Adding the custom description for query from the [graphMetaData.json]",
+            "isDeprecated": false,
+            "args": {
+                "ASC ": {
+                    "description": "Adding the userId description from the [graphMetaData.json]"
+                },
+                "DESC ": {
+                    "description": "Adding the projectId description from the [graphMetaData.json]"
+                }
+            },
+            "response": {
+                "data": {
+                    "getUser": [
+                        {
+                            "id": "0001",
+                            "type": "donut",
+                            "name": "Cake",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    },
+                                    {
+                                        "id": "1002",
+                                        "type": "Chocolate"
+                                    },
+                                    {
+                                        "id": "1003",
+                                        "type": "Blueberry"
+                                    },
+                                    {
+                                        "id": "1004",
+                                        "type": "Devil's Food"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5005",
+                                    "type": "Sugar"
+                                },
+                                {
+                                    "id": "5007",
+                                    "type": "Powdered Sugar"
+                                },
+                                {
+                                    "id": "5006",
+                                    "type": "Chocolate with Sprinkles"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "0002",
+                            "type": "donut",
+                            "name": "Raised",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5005",
+                                    "type": "Sugar"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "0003",
+                            "type": "donut",
+                            "name": "Old Fashioned",
+                            "ppu": 0.55,
+                            "batters": {
+                                "batter": [
+                                    {
+                                        "id": "1001",
+                                        "type": "Regular"
+                                    },
+                                    {
+                                        "id": "1002",
+                                        "type": "Chocolate"
+                                    }
+                                ]
+                            },
+                            "topping": [
+                                {
+                                    "id": "5001",
+                                    "type": "None"
+                                },
+                                {
+                                    "id": "5002",
+                                    "type": "Glazed"
+                                },
+                                {
+                                    "id": "5003",
+                                    "type": "Chocolate"
+                                },
+                                {
+                                    "id": "5004",
+                                    "type": "Maple"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
