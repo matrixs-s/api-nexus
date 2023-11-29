@@ -11,7 +11,6 @@
     "url": "https://github.com/matrixs-s/api-nexus/issues"
   },
   "scripts": {
-    "preinstall": "node check-node-version.js",
     "build:client": "PARENT_DIR=$(dirname $(pwd)); if [ \"$(basename $PARENT_DIR)\" = \"node_modules\" ]; then OUTPUT_PATH=../../doc/dist/bundle.js; else OUTPUT_PATH=$(pwd)/doc/dist/bundle.js; fi; esbuild src/index.js --bundle --outfile=$OUTPUT_PATH --loader:.js=jsx --loader:.css=css",
     "build:server": "PARENT_DIR=$(dirname $(pwd)); if [ \"$(basename $PARENT_DIR)\" = \"node_modules\" ]; then OUTPUT_PATH=../../doc/build/server.js; else OUTPUT_PATH=$(pwd)/doc/build/server.js; fi; esbuild server/server.jsx --bundle --outfile=$OUTPUT_PATH --platform=node",
     "build:css": "PARENT_DIR=$(dirname $(pwd)); if [ \"$(basename $PARENT_DIR)\" = \"node_modules\" ]; then OUTPUT_PATH=../../doc/dist/bootstrap-bundle.min.css; else OUTPUT_PATH=$(pwd)/doc/dist/bootstrap-bundle.min.css; fi; esbuild src/bootstrap/bootstrap.min.css --bundle --outfile=$OUTPUT_PATH --minify",
@@ -39,8 +38,7 @@
     "react-dom": "17.0.2",
     "react-helmet-async": "^1.3.0",
     "react-router-dom": "^6.17.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "semver": "^7.5.4"
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
