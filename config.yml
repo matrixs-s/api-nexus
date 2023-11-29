@@ -1,3 +1,73 @@
-# easyGraphQl:
-#   info:
-#     includeInDocument: graph
+# You can specify any of these variables loaded from ENV using the syntax::${VARIABLE_NAME}
+apiNexus:
+  # Specify the environment for the documentation
+  env: ${DOC_ENV} # Development,Qa,Staging,Production default=Development]
+  includeExample: true # true OR false [default=true]
+
+  # Once you defined the auth in the file your doc will be secured
+  authentication:
+    documentUser: ${DOC_USER}
+    documentPassword: ${DOC_PASSWORD}
+
+  # Includes the info for the main page and logo on al the pages
+  info:
+    title: Sample # [default=Sample]
+    logo: https://i.ibb.co/yXjDLN4/apinexus-high-resolution-logo-black-transparent.png # [default=Logo]
+    includeDocumentType: both # graph OR rest Or both  [default=both]
+    introduction: >
+      Welcome to our comprehensive guide on Application Programming Interfaces (APIs). APIs play a crucial role in the world of software development, enabling different applications to communicate with each other and access data and functionality. Whether you're a developer, a business owner, or simply curious about how the digital world works, this webpage is your go-to resource for understanding the fundamental concepts and practical uses of APIs.
+    graphDescription: Welcome to the GraphQL API Overview, your gateway to the future of data querying and manipulation in the world of software development # [default=some description]
+    restDescription: Welcome to the REST API Overview, your comprehensive resource for understanding and working with Representational State Transfer (REST) APIs # [default=some description]
+
+  # Rest schema for rest API documentation
+  rest:
+    title: REST # [default=Sample]
+    version: 2.0.0 # [default=1.0.0]
+    description: This comprehensive reference provides detailed information on the GraphQL <i>types</i>, <a href="#group-Operations-Queries"><i>queries</i></a>, <a href="#group-Operations-Mutations"><i>mutations</i></a>, <a href="#group-Operations-Subscriptions"><i>subscriptions</i></a>, and their respective parameters for interacting with the API and understanding the corresponding API responses. <br /> <br /> <h4>Follow these steps to add authentication:</h4>1. Go to the <a href="#mutation-login"><code>Login API</code></a> .<br />2. Enter your credentials<code>:</code> <br /> <code>"email":"youremail@domain.com"</code>, <code>"password":"your_password"</code>.<br /> 3. Copy the <code>token</code> from the response.<br />4. Add the token in the HTTP Headers using the following format.<br /><code>{"authorization":"token"}</code> # [default=Some description]
+    servers:
+      - url: https://sample-dev.com/api/rest
+        env: Development
+        headers:
+          - name: Authorization
+            example: <YOUR_TOKEN_HERE>
+            comment: Use login token here for authorization from config
+
+  # Graph schema for graphQl API documentation
+  graphQl:
+    title: GraphQL # [default=Sample]
+    version: 2.1.0 # [default=1.0.0]
+    description: This comprehensive reference provides detailed information on the GraphQL <i>types</i>, <a href="#group-Operations-Queries"><i>queries</i></a>, <a href="#group-Operations-Mutations"><i>mutations</i></a>, <a href="#group-Operations-Subscriptions"><i>subscriptions</i></a>, and their respective parameters for interacting with the API and understanding the corresponding API responses. <br /> <br /> <h4>Follow these steps to add authentication:</h4>1. Go to the <a href="#mutation-login"><code>Login API</code></a> .<br />2. Enter your credentials<code>:</code> <br /> <code>"email":"youremail@domain.com"</code>, <code>"password":"your_password"</code>.<br /> 3. Copy the <code>token</code> from the response.<br />4. Add the token in the HTTP Headers using the following format.<br /><code>{"authorization":"token"}</code> # [default=Some description]
+
+    # [default = loads the schema from examples need to set includeExample:true when you do not specify the URl]
+    introspection:
+      url: https://sample-dev.com/api/graphql # [Make sure it is accessible and allowed to access]
+      overWriteEachTime: false # [default=false]
+
+    # [default = Development]
+    servers:
+      - url: https://sample-dev.com/api/graphql/dev
+        env: Development
+        headers:
+          - name: Authorization
+            example: <YOUR_TOKEN_HERE>
+            comment: Use login token here for authorization # A small description
+          - name: content-type
+            example: "application/json"
+            comment: Use content type as application-json # A small description
+
+      - url: https://sample-dev.com/api/graphql/qa
+        env: Qa
+        headers:
+          - name: Authorization
+            example: <YOUR_TOKEN_HERE>
+            comment: Use login token here for authorization
+
+      - url: https://sample-dev.com/api/graphql/stage
+        env: Staging
+        headers:
+          - name: Authorization
+            example: <YOUR_TOKEN_HERE>
+            comment: Use login token here for authorization
+
+      - url: https://sample-dev.com/api/graphql/production
+        env: Production

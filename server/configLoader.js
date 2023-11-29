@@ -91,7 +91,7 @@ let [operationResult, isOperationExecuting] = [null, false];
 
 const configLoader = async (configFilePath) => {
   if (operationResult !== null) {
-    console.log("Config already loaded. Returning cached result.");
+    // console.log("Config already loaded. Returning cached result.");
     return operationResult;
   }
 
@@ -136,32 +136,17 @@ const loadMetaDataFromFile = async (params, filePath, includeExample) => {
       if (includeExample) {
         try {
           mkdirSync(rootPath, { recursive: true });
-          try {
-            const packagePath = path.dirname(
-              require.resolve("node_modules/api-nexus/examples")
-            );
-            if (packagePath) {
-              const fullFilePath = path.join(
-                process.cwd(),
-                "node_modules/api-nexus/examples",
-                filePath
-              );
-              const sampleData = require(fullFilePath);
-              fsPromises.writeFile(
-                `${rootPath}/${filePath}`,
-                JSON.stringify(sampleData, null, 4)
-              );
-              return sampleData;
-            }
-          } catch (error) {
-            const fullFilePath = path.join(process.cwd(), "examples", filePath);
-            const sampleData = require(fullFilePath);
-            fsPromises.writeFile(
-              `${rootPath}/${filePath}`,
-              JSON.stringify(sampleData, null, 4)
-            );
-            return sampleData;
-          }
+          const cwd = process.cwd();
+          const referencePath = `${cwd}/node_modules/api-nexus/examples`;
+          const loadExamples = existsSync(referencePath)
+            ? `${referencePath}/${filePath}`
+            : `${cwd}/examples/${filePath}`;
+          const sampleData = require(path.join(loadExamples));
+          fsPromises.writeFile(
+            `${rootPath}/${filePath}`,
+            JSON.stringify(sampleData, null, 4)
+          );
+          return sampleData;
         } catch (exampleLoadError) {
           console.log("exampleLoadError", exampleLoadError);
           return {};

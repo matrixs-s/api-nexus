@@ -8,11 +8,11 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 // Load the server routes from this file
 import AppRoutes from "../src/routes.jsx";
-require('dotenv').config();
+require("dotenv").config();
 
 const server = express();
 const PORT = process.env.PORT || 3001;
-server.set("trust proxy", 1); // trust first proxy
+server.set("trust proxy", 1);
 server.use(
   session({
     name: `bb5dc8842ca31d4603d6aa11448d1654`,
@@ -20,14 +20,33 @@ server.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // This will only work if you have https enabled!
-      maxAge: 60000 * 30, // 1 min
+      secure: false,
+      maxAge: 60000 * 30,
     },
   })
 );
 
+function serverDocumentationStaticFiles(directory) {
+  return (req, res, next) => {
+    const { url } = req;
+    const paths = url?.split("/")?.filter(Boolean) ?? [];
+
+    if (paths.length > 0) {
+      req.url = paths?.[paths?.length - 1] ?? "/";
+      express.static(directory, { maxAge: "30d" })(req, res, (err) => {
+        req.url = url;
+        next(err);
+      });
+    } else {
+      next();
+    }
+  };
+}
+
 server.use(
-  express.static(path.resolve(__dirname, "..", "dist"), { maxAge: "30d" })
+  serverDocumentationStaticFiles(path.resolve(process.cwd(), "doc", "dist"), {
+    maxAge: "30d",
+  })
 );
 
 // Define API routes

@@ -9,10 +9,6 @@ const DocumentApiGroups = ({
   handleSourceType,
   handleListItemClick,
 }) => {
-  // console.log(
-  //   "[DocumentApiGroups] --> [Options] --> [QUERY,MUTATION,SUBSCRIPTION],[GET,PUT,POST]",
-  //   isGraph
-  // );
   const [expandedItem, setExpandedItem] = useState(
     Object.keys(listGroups || {})?.[0] || null
   );
@@ -23,7 +19,7 @@ const DocumentApiGroups = ({
       .replace(/^./, (firstLetter) => firstLetter.toUpperCase())
       .trim();
   };
- 
+
   useEffect(() => {
     const fetchData = async (expandedItem) => {
       handleSourceType(expandedItem, listGroups[expandedItem]);

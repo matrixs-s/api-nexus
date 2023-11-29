@@ -9,8 +9,6 @@ import "../../../css/TreeView.css";
 import "../../../css/Rest.css";
 
 const RestMainContent = ({ apiContent, type, focusRef }) => {
-  // console.log("[RestMainContent]", apiContent, "-- RestMain-Group-type", type);
-  
   const lowerCamelToTitleCase = (lowerCamel) => {
     return lowerCamel
       .replace(/([a-z])([A-Z])/g, "$1 $2")
