@@ -6,8 +6,8 @@ apiNexus:
 
   # Once you defined the auth in the file your doc will be secured
   authentication:
-    documentUser: ${DOC_USER}
-    documentPassword: ${DOC_PASSWORD}
+    documentUser: ${DOC_USER} # default user is - [documentUser=test]
+    documentPassword: ${DOC_PASSWORD} # default password is - [documentPassword=test@123]
 
   # Includes the info for the main page and logo on al the pages
   info:
