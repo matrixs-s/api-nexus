@@ -41,20 +41,22 @@ function AppRoutes({ appData, hasSessionData }) {
     <DocumentContextProvider context={appData}>
       <Routes>
         <Route
-          path="/"
-          element={getRouteElement(authentication, hasSession, <MainPage />)}
+          path={appData?.basePath !== '/' ? `${appData?.basePath}/`:'/'}
+          element={getRouteElement(authentication, hasSession, <MainPage basePath={appData?.basePath !== '/' ? appData.basePath : null} />)}
         />
         <Route
-          path="graphql_api"
+          // path={`appData?.basePath != '/'? ${appData?.basePath}/graphql_api :graphql_api `}
+          path={appData?.basePath !== '/' ? `${appData?.basePath}/graphql_api` : 'graphql_api'}
           element={getRouteElement(authentication, hasSession, <GraphPage />)}
         />
         <Route
-          path="rest_api"
+          path={appData?.basePath !== '/' ? `${appData?.basePath}/rest_api` : 'rest_api'}
+          // path={`${appData?.basePath}/rest_api`}
           element={getRouteElement(authentication, hasSession, <RestPage />)}
         />
         <Route
           path="*"
-          element={getRouteElement(authentication, hasSession, <MainPage />)}
+          element={getRouteElement(authentication, hasSession, <MainPage basePath={appData?.basePath !== '/' ? appData.basePath : null}/>)}
         />
       </Routes>
     </DocumentContextProvider>

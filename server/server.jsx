@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from 'fs';
 import session from "express-session";
 import { configLoader } from "./configLoader.js";
 
@@ -9,6 +10,12 @@ import { StaticRouter } from "react-router-dom/server";
 // Load the server routes from this file
 import AppRoutes from "../src/routes.jsx";
 require("dotenv").config();
+
+const allowedStaticFiles = [
+  "bundle.css",
+  "bundle.js",
+  "bootstrap-bundle.min.css",
+];
 
 const server = express();
 const PORT = process.env.PORT || 3001;
@@ -26,28 +33,29 @@ server.use(
   })
 );
 
-function serverDocumentationStaticFiles(directory) {
+const renderStaticFiles = (staticPath, allowedStaticFiles) => {
   return (req, res, next) => {
-    const { url } = req;
-    const paths = url?.split("/")?.filter(Boolean) ?? [];
-
-    if (paths.length > 0) {
-      req.url = paths?.[paths?.length - 1] ?? "/";
-      express.static(directory, { maxAge: "30d" })(req, res, (err) => {
-        req.url = url;
-        next(err);
-      });
-    } else {
+    const fileName = allowedStaticFiles.find((file) => req.url.endsWith(file));
+    if (!fileName) {
       next();
+      return;
     }
+    const filePath = path.join(staticPath, fileName);
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+      if (err) {
+        next();
+      } else {
+        res.sendFile(filePath);
+      }
+    });
   };
-}
+};
 
 server.use(
-  serverDocumentationStaticFiles(path.resolve(process.cwd(), "doc", "dist"), {
-    maxAge: "30d",
-  })
+  renderStaticFiles(path.join(process.cwd(), "doc", "dist"), allowedStaticFiles)
 );
+
+server.get("/favicon.ico", (req, res) => res.status(204));
 
 // Define API routes
 server.post("/login", (req, res, next) => {
@@ -63,6 +71,7 @@ server.get("*", async (req, res) => {
       {},
     ];
     appContext.hasSessionData = req?.session?.isLoggedIn || false;
+    appContext.basePath = req?.url ?? null;
     const app = (
       <StaticRouter location={req.url} context={{}}>
         <AppRoutes

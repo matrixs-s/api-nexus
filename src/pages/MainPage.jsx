@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDocumentContext } from "../appContext";
 import "../css/App.css";
 
-export default function MainPage() {
+export default function MainPage({ basePath }) {
   const navigate = useNavigate();
   const { config } = useDocumentContext();
   const {
@@ -18,7 +18,7 @@ export default function MainPage() {
   } = config?.apiNexus?.info ?? {};
 
   const handleDocumentPath = (path) => {
-    navigate(path);
+    navigate(basePath ? `${basePath}/${path}` : path);
   };
 
   function renderCard(title, description, path) {

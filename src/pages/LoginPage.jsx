@@ -39,6 +39,11 @@ const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin();
+  };
+
   return (
     <div className="login-container">
       <div className="login-page">
@@ -51,26 +56,28 @@ const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
           />
         </h1>
         <hr></hr>
-        <div>
-          <label>Username:</label>
-          <input
-            type="user"
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        {error && <p className="error-message">{error}</p>}
-        <button style={{ marginTop: "20px" }} onClick={handleLogin}>
-          Login
-        </button>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Username:</label>
+            <input
+              type="user"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <button style={{ marginTop: "20px" }} type="submit">
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );
