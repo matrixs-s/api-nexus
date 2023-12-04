@@ -57,7 +57,7 @@ const DocumentIntroduction = ({ isGraph }) => {
           <Row className="text-justify">
             <Col md={6}>
               <Card.Title>
-                <h1 style={{ "text-align": "left" }}>
+                <h1 style={{ "textAlign": "left" }}>
                   <a href="#">{title}</a> API References
                 </h1>
               </Card.Title>

@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Login.css"; // Import your CSS file
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
+const LoginPage = ({ authentication, onLoginSuccess, logo, basePath }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(basePath ? basePath : "/");
+  }, [navigate]);
 
   const handleLogin = async () => {
     try {
@@ -27,7 +36,7 @@ const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
       }
 
       // Simulate login with a POST request
-      const response = await axios.post("/login", { user, password });
+      const response = await axios.post(`${basePath ? `${basePath}/login` : '/login'}`, { user, password });
 
       if (response.status === 200) {
         onLoginSuccess(true);
@@ -67,11 +76,19 @@ const LoginPage = ({ authentication, onLoginSuccess, logo }) => {
           </div>
           <div>
             <label>Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="password-input">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {!showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
           {error && <p className="error-message">{error}</p>}
           <button style={{ marginTop: "20px" }} type="submit">

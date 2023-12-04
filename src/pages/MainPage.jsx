@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Card, Button } from "react-bootstrap";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,11 @@ import "../css/App.css";
 
 export default function MainPage({ basePath }) {
   const navigate = useNavigate();
+  useEffect(() => {
+    if (basePath === null || basePath === undefined) {
+      navigate("/");
+    }
+  }, [navigate, basePath]);
   const { config } = useDocumentContext();
   const {
     title = "Sample",
@@ -34,7 +39,7 @@ export default function MainPage({ basePath }) {
       >
         <Card.Body>
           <Card.Title>{title}</Card.Title>
-          <p className="card-text">
+          <div className="card-text">
             <div
               style={{
                 height: "250px",
@@ -51,7 +56,7 @@ export default function MainPage({ basePath }) {
                 {title} Documentation
               </Button>
             </p>
-          </p>
+          </div>
         </Card.Body>
       </Card>
     );
@@ -89,7 +94,10 @@ export default function MainPage({ basePath }) {
               <Card.Title className="cardTitle" style={{ fontSize: "x-large" }}>
                 {`${title} API Documentation`}
               </Card.Title>
-              <Card.Text className="cardText" style={{ textAlign: "justify" }}>
+              <div
+                className="card-text cardText"
+                style={{ textAlign: "justify" }}
+              >
                 <div className="cardText">{introduction}</div>
                 <Row>
                   {includeDocumentType === "both" ||
@@ -121,7 +129,7 @@ export default function MainPage({ basePath }) {
                     </div>
                   ) : null}
                 </Row>
-              </Card.Text>
+              </div>
             </Card.Body>
           </Card>
         </Row>
