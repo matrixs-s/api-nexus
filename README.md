@@ -41,13 +41,13 @@ Node Version => <font  color="red"> 16.0.0</font>
 
 ### Step 1: **Install api-nexus**
 - Use the following command to install the *api-nexus* package in your project:
-```bash
+    ```bash
 
-> npm install -g api-nexus
-			OR
-> npm install api-nexus
+    > npm install -g api-nexus
+                OR
+    > npm install api-nexus
 
-```
+    ```
 ### **Step 2: Create a Config.yml File**
 
 - Create a <font  color="red">  `config.yml`</font> file in the root directory of your project. For an example configuration, refer to the [ [config.yml Example here ](https://github.com/matrixs-s/api-nexus/blob/master/config.yml)]
@@ -56,12 +56,12 @@ Node Version => <font  color="red"> 16.0.0</font>
 
 - Create a <font  color="red">`.env`  </font>file in the project root directory and export the following environment variables:
 
-```bash
-DOC_USER=test
-DOC_PASSWORD=test
-DOC_ENV=Development
-DOC_PORT=3001
-```
+    ```bash
+    DOC_USER=test
+    DOC_PASSWORD=test
+    DOC_ENV=Development
+    DOC_PORT=3001
+    ```
 #### Explanation:
 
 - If authentication is defined in your <font  color="red">*`config.yml`,*  </font> provide the following environment variables:
@@ -76,19 +76,19 @@ DOC_PORT=3001
 ### **Step 4: Update Package.json**
 
 - Add the following command in your <font  color="red">  `package.json`  </font> to create the api documentation:
-```bash
-"scripts": {
-"build-api-documentation": "npm explore api-nexus -- npm run build-api-documentation",
-"start": "node app.js"
-}
-```
+    ```bash
+    "scripts": {
+        "build-api-documentation": "npm explore api-nexus -- npm run build-api-documentation",
+        "start": "node app.js"
+    }
+    ```
 
 ### Step 5: Generate Documentation
 
 - Run the following command to generate the documentation files:
-```bash
-> npm run build-api-documentation
-```
+    ```bash
+    > npm run build-api-documentation
+    ```
 
 ### **Step 6: Verify Generated Files**
 
@@ -111,30 +111,30 @@ DOC_PORT=3001
 
 - Include the following code lines in your project to enable the documentation:
 
-```bash
-const express = require("express");
-const app = express();
-const path = require("path");
+    ```bash
+    const express = require("express");
+    const app = express();
+    const path = require("path");
 
-# Include these lines of code
-const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
-documentApi('/api/my-app/document')
+    # Include these lines of code
+    const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
+    documentApi('/api/my-app/document')
 
-app.get("/health",  async (req, res) => {
-	res.send("server is up");
-});
+    app.get("/health",  async (req, res) => {
+        res.send("server is up");
+    });
 
-app.use((err, req, res, next) => {
-	console.error(err.stack);
-	res.status(500).send("Something went wrong!");
-});
+    app.use((err, req, res, next) => {
+        console.error(err.stack);
+        res.status(500).send("Something went wrong!");
+    });
 
-const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
-});
-```
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+    ```
 
 -  <font  color="red">**Note** </font> : Adjust the `path` variable to set the base path at which your document will be visible. For example, <font  color="orange">`/api/document` </font>,<font  color="orange"> `/api-project/document`, </font> etc.
 
@@ -160,55 +160,55 @@ app.listen(PORT, () => {
 	### Step 2: Docker Configuration
 	- Add the below configuratio to the docker file
 
-	```bash
-	FROM node:16
-	# Set the working directory
-	WORKDIR /app
-	# Copy only the package.json and package-lock.json to leverage Docker cache
-	COPY package*.json ./
-	# Install app dependencies
-	RUN npm install
-	# Build the API documentation (if needed)
-	RUN npm run build-api-documentation
-	# Copy the rest of the application code
-	COPY .  .
-	# Expose the necessary ports
-	EXPOSE 3000
-	EXPOSE 3001
-	# Run the application
-	CMD ["npm", "start"]
-	```
+        ```bash
+        FROM node:16
+        # Set the working directory
+        WORKDIR /app
+        # Copy only the package.json and package-lock.json to leverage Docker cache
+        COPY package*.json ./
+        # Install app dependencies
+        RUN npm install
+        # Build the API documentation (if needed)
+        RUN npm run build-api-documentation
+        # Copy the rest of the application code
+        COPY .  .
+        # Expose the necessary ports
+        EXPOSE 3000
+        EXPOSE 3001
+        # Run the application
+        CMD ["npm", "start"]
+        ```
 
 	### Step 3: Nginx Setup
 
 	- Create the below setup for the server proxy using Nginx:
-	```bash
-	server {
-		server_name my-domain;
-		client_max_body_size 1024m;
-		location /api/document {
-		proxy_pass http://my-domain:3004/api/document;
-		proxy_http_version 1.1;
-		proxy_set_header Host $http_host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Proto $scheme;
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection "upgrade";
-	}
+        ```bash
+        server {
+            server_name my-domain;
+            client_max_body_size 1024m;
+            location /api/document {
+            proxy_pass http://my-domain:3004/api/document;
+            proxy_http_version 1.1;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+        }
 
-	location / {
-		proxy_pass http://my-domain:3002;
-		proxy_http_version 1.1;
-		proxy_set_header Host $http_host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Proto $scheme;
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection "upgrade";
-		}
-	}
-	```
+        location / {
+            proxy_pass http://my-domain:3002;
+            proxy_http_version 1.1;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            }
+        }
+        ```
 	-  ### Explanation
 
 	- Let's consider you set the base URL as<font  color="orange">  `/api/document`</font> using the <font  color="red">`documentApi('/api/document')`  </font>configuration in your application.
