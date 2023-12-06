@@ -1,335 +1,299 @@
 # api-nexus
 
+
+
 [![npm](https://img.shields.io/npm/v/api-nexus)](https://www.npmjs.com/package/api-nexus)
+
 [![npm](https://img.shields.io/npm/dw/api-nexus)](https://www.npmjs.com/package/api-nexus)
+
 [![GitHub](https://img.shields.io/github/license/your-username/api-nexus)](https://github.com/your-username/api-nexus/blob/main/LICENSE)
 
 ## Overview
-
-**api-nexus** is a powerful tool for effortlessly generating comprehensive API documentation for both RESTful and GraphQL APIs. Whether you are building REST APIs or GraphQL schemas, this tool streamlines the documentation process, ensuring clarity and consistency.
+![Api-nexus](https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png)
+<font  color="red">**api-nexus**</font> is a powerful tool for effortlessly generating comprehensive API documentation for both RESTful and GraphQL APIs. Whether you are building <font  color="red">**REST APIs**</font> or <font  color="red">**GraphQL schemas**</font>, this tool streamlines the documentation process, ensuring clarity and consistency.
 
 **Required**
-
-Node Version => 16.0.0
-
-## Documentation View
-    <img src="https://github.com/matrixs-s/api-nexus/blob/master/public/images/login-page.png" width="400">
-
-    <img src="https://github.com/matrixs-s/api-nexus/blob/master/public/images/landing-page.png" width="400">
-
-    <img src="https://github.com/matrixs-s/api-nexus/blob/master/public/images/graph-apis.png" width="400">
-
-    <img src="https://github.com/matrixs-s/api-nexus/blob/master/public/images/rest-apis.png" width="400">
+Node Version => <font  color="red"> 16.0.0</font>
 
 ## Features
 
-- **Automatic Documentation Generation:** Easily generate API documentation based on your RESTful endpoints and GraphQL schemas.
-- **Separate REST and GraphQL Documentation:** Create distinct documents for RESTful APIs and GraphQL APIs.
-- **Developer-Friendly Markdown Format:** The generated documentation is presented in Markdown format, making it easy to read and edit.
-- **Customization Options:** Customize the appearance and content of your API documentation to meet your project's specific needs.
-- **Interactive GraphQL Playground:** Include an interactive GraphQL Playground for users to experiment with queries.
+-  **Automatic Documentation Generation:** Easily generate API documentation based on your RESTful endpoints and GraphQL schemas.
 
-## Getting Started
+-  **Separate REST and GraphQL Documentation:** Create distinct documents for RESTful APIs and GraphQL APIs.
 
-    1. Install **api-nexus** globally to use it as a command-line tool:
+-  **Developer-Friendly Markdown Format:** The generated documentation is presented in Markdown format, making it easy to read and edit.
 
-    ```bash
-    npm install -g api-nexus
+-  **Customization Options:** Customize the appearance and content of your API documentation to meet your project's specific needs.
 
-        OR
+-  **Interactive GraphQL Playground:** Include an interactive GraphQL Playground for users to experiment with queries.
 
-    npm install api-nexus
-    ```
 
-    This is a global installation, but you can also either:
+## Documentation View
 
-    - Clone this repository
-    - Add `api-nexus` as a dependency to an existing project.
+<p  align="center">
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/login-page.png"  alt="Login Page"  width="400"  height="260"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/landing-page.png"  alt="Landing Page"  width="400"  height="260"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/rest-apis.png"  alt="Rest Page"  width="400"  height="260"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/graph-apis.png"  alt="Graph Page"  width="400"  height="260"/>
+</p>
 
-    2. Define a `config.yml` that specifies how you'd like to generate your docs.
-    See [YAML Options](https://github.com/matrixs-s/api-nexus/blob/master/config.yml) for more.
+## 1. Getting Started
 
-    3. Set Environment Variables
+### Step 1: **Install api-nexus**
+- Use the following command to install the *api-nexus* package in your project:
+```bash
 
-    Create a .env file in the project root directory and export the following environment variables:
+> npm install -g api-nexus
+			OR
+> npm install api-nexus
 
-    ```bash
-        DOC_USER=test
-        DOC_PASSWORD=test
-        DOC_ENV=Development
-        DOC_PORT=3001
-    ```
-    Explanation:
-        - If authentication is defined in your config.yml, provide the following environment variables:
-            - DOC_USER=test
-            - DOC_PASSWORD=test
-        - The default server port is 3001. If you want to use a different port, set it with the DOC_PORT environment variable:
-            - Example: DOC_PORT=4000
-        - Add the environment for which you want to create the documentation:
-            - DOC_ENV=Development
+```
+### **Step 2: Create a Config.yml File**
 
-    4. Update Package.json Scripts
+- Create a <font  color="red">  `config.yml`</font> file in the root directory of your project. For an example configuration, refer to the [ [config.yml Example here ](https://github.com/matrixs-s/api-nexus/blob/master/config.yml)]
 
-        Add the following command in your **package.json** to create the api documentation:
+### **Step 3: Set Environment Variables**
 
-        ```bash
-            jsonCopy code"scripts": {  "build-api-documentation": "npm explore api-nexus -- npm run build-api-documentation",  "start": "node app.js"}
-        ```
+- Create a <font  color="red">`.env`  </font>file in the project root directory and export the following environment variables:
 
-    5. Generate Documentation Files
+```bash
+DOC_USER=test
+DOC_PASSWORD=test
+DOC_ENV=Development
+DOC_PORT=3001
+```
+#### Explanation:
 
-        Run the following command to generate the documentation files:
+- If authentication is defined in your <font  color="red">*`config.yml`,*  </font> provide the following environment variables:
+-  `DOC_USER=test`
+-  `DOC_PASSWORD=test`
+- The default server port is 3001. If you want to use a different port, set it with the <font  color="orange">`DOC_PORT`</font> environment variable:
+-  `DOC_PORT=4000`
+- Add the environment for which you want to create the documentation:
+-  `DOC_ENV=Development`
 
-        ```bash
-            bashCopy npm run build-api-documentation
-        ```
 
-    6. Verify Generated Files
+### **Step 4: Update Package.json**
 
-        After running the command, a **doc** folder will be created in the root directory with the following structure:
+- Add the following command in your <font  color="red">  `package.json`  </font> to create the api documentation:
+```bash
+"scripts": {
+"build-api-documentation": "npm explore api-nexus -- npm run build-api-documentation",
+"start": "node app.js"
+}
+```
 
-        ```bash
-            - doc
-                - build
-                - dist
-                - graph
-                    - [introspection.json](https://github.com/matrixs-s/api-nexus/tree/master/doc/graph/introspection.json)
-                    - [graphMetaData.json](https://github.com/matrixs-s/api-nexus/tree/master/doc/graph/graphMetaData.json)
-                - rest
-                    - [restMetaData.json](https://github.com/matrixs-s/api-nexus/tree/master/doc/rest/restMetaData.json)
-        ```
+### Step 5: Generate Documentation
 
-        Note: These files are auto-generated, and renaming them may cause issues in document generation.
+- Run the following command to generate the documentation files:
+```bash
+> npm run build-api-documentation
+```
 
-    7. Include Code Lines in Your Project
+### **Step 6: Verify Generated Files**
 
-        Include the following code lines in your project to enable the documentation:
+- After running the command, a <font  color="red">  `doc`  </font> folder will be created in the root directory with the following structure:
 
-        ```node
-            const express = require("express");
-            const app = express();const path = require("path");
-            const documentApi = require(path.join(__dirname, "doc", "build", "server.js"));
+	**doc**
+	├── build
+	├── dist
+	├── graph
+	│ ├── introspection.json [[Introspection JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/introspection.json)]
+	│ └── graphMetaData.json [[graphMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/graphMetaData.json)]
+	│
+	└── rest
+		└── restMetaData.json [[restMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/restMetaData.json)]
 
-            documentApi('/api/my-app/document')
+-  <font  color="red">**Note**</font>: These files are auto-generated, and renaming them may cause issues in document generation.You can also create this folder structure in the root project directory manual to run the document.
 
-            app.get("/health", async (req, res) => {
-                res.send("server is up");
-            });
 
-            app.use((err, req, res, next) => {
-            console.error(err.stack);
-            res.status(500).send("Something went wrong!");
-            });
+### **Step 7: Include Code Lines in Your Project**
 
-            const PORT = process.env.PORT || 3000;
+- Include the following code lines in your project to enable the documentation:
 
-            app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-            });
-        ```
+```bash
+const express = require("express");
+const app = express();
+const path = require("path");
 
-        Note: Adjust the **path** variable to set the base path at which your document will be visible. For example,
-        **/api/document**, **/api-project/document, etc**.
-
-    8. Access Document Server
-
-        You can access the document server at the following URL with the specified base path:
-
-        - ```bash
-            host:3001/api/my-app/document
-          ```
-
-        Note: If you have set the port to 4000, the URL will be accessible at **host:4000/api/my-app/document**.
-
-
-## Docker Setup
-
-    Certainly! Here's an updated explanation that includes the additional information:
-
-    ```bash
-        # Use a lightweight Node.js image
-        FROM node:16
-
-        # Set the working directory
-        WORKDIR /app
-
-        # Copy only the package.json and package-lock.json to leverage Docker cache
-        COPY package*.json ./
-
-        # Install app dependencies
-        RUN npm install
-
-        # Build the API documentation (if needed)
-        RUN npm run build-api-documentation
-
-        # Copy the rest of the application code
-        COPY . .
-
-        # Expose the necessary ports
-        EXPOSE 3000
-        EXPOSE 3001
-
-        # Run the application
-        CMD ["npm", "start"]
-    ```
-
-## Nginx Setup
-
-    ```bash
-        server {
-            server_name   my-domain;
-
-            client_max_body_size 1024m;
-
-            location /api/document {
-                proxy_pass http://my-domain:3004/api/document;
-                proxy_http_version 1.1;
-                proxy_set_header  Host              $http_host;
-                proxy_set_header  X-Real-IP         $remote_addr;
-                proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
-                proxy_set_header  X-Forwarded-Proto $scheme;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection "upgrade";
-            }
-
-            location / {
-            proxy_pass                          http://my-domain:3002;
-            proxy_http_version                  1.1;
-            proxy_set_header  Host              $http_host;
-            proxy_set_header  X-Real-IP         $remote_addr;
-            proxy_set_header  X-Forwarded-For   $proxy_add_x_forwarded_for;
-            proxy_set_header  X-Forwarded-Proto $scheme;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            }
-    # ... Other configurations ...
-
-    # ... More configurations ...
-
-    # ... Additional configurations ...
-        }
-    ```
-
-## Additional Explanation
-
-    Let's consider you set the base URL as **/api/document** using the **documentApi('/api/document')** configuration in your application.
-
-    Now, in the Nginx setup, the **location /api/document** block is configured to handle requests for **/api/document**. This block uses **proxy_pass** to direct these requests to the document API server, which is assumed to be running on port 3001 and mapped to port 3004 using the Docker command:
-
-    ```bash
-        bashCopy codesudo docker run -it -p 3002:3000 -p 3004:3001 api-nexus
-    ```
-
-    So, the **proxy_pass** in the Nginx configuration becomes ```bash http://my-domain:3004/api/document```.
-
-    You can handle other base URLs in a similar way by creating additional **location** blocks in the Nginx configuration, allowing you to route different parts of your application to various backend servers based on your requirements. Adjust the port numbers and base URLs accordingly for your specific setup.
-
-## Getting Started With Http Proxy
-
-    If you prefer not to use Nginx for proxying, follow the steps below to serve the document using the HTTP proxy instead.
-
-    ```node
-
-        const express = require("express");
-        const app = express();
-        const path = require("path");
-        const { createProxyMiddleware } = require("http-proxy-middleware");
-
-        // Include the API Nexus documentation server
-        const documentApi = require(path.join(__dirname, "doc", "build", "server.js"));
-
-        // Specify the base path for the API documentation
-        documentApi('/api/document');
-
-        // Define a route for server-side rendering logic
-        app.get("/health", async (req, res) => {
-        res.send("server is up");
-        });
-
-        // Create a proxy middleware for the "/api/document" route
-        const documentProxy = createProxyMiddleware({
-        target: "http://domain:3001", // Replace with the actual destination server URL
-        changeOrigin: true,
-        });
-
-        // Use the proxy middleware for the "/api/document" route
-        app.use("/api/document", documentProxy);
-
-        // Error handling middleware
-        app.use((err, req, res, next) => {
-        console.error(err.stack);
-        res.status(500).send("Something went wrong!");
-        });
-
-        // Specify the port on which the server should listen
-        const PORT = process.env.PORT || 3000;
-
-        // Start the server
-        app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-        });
-    ```
-
-    Explanation: app.use("/api/document", documentProxy);: Uses the proxy middleware for the "/api/document" route.
-
-## Configuration
-
-### General Configuration Details
-
-| Variable              | Description                                | Default                |
-|-----------------------|--------------------------------------------|------------------------|
-| `apiNexus.env`        | Environment for documentation (Development, Qa, Staging, Production) | Development |
-| `apiNexus.includeExample` | Include example documentation (true/false) | true                   |
-
-### Authentication Configuration
-
-| Variable                      | Description                                  | Default    |
-|-------------------------------|----------------------------------------------|------------|
-| `apiNexus.authentication.documentUser` | Document user for authentication           | test       |
-| `apiNexus.authentication.documentPassword` | Document password for authentication   | test@123   |
-
-### Info Configuration
-
-| Variable              | Description                                | Default                |
-|-----------------------|--------------------------------------------|------------------------|
-| `apiNexus.info.title` | Title for the documentation                | Sample                 |
-| `apiNexus.info.logo`  | Logo URL for the documentation             | [Default Logo URL]     |
-| `apiNexus.info.includeDocumentType` | Include document type (graph/rest/both) | both                   |
-| `apiNexus.info.introduction` | Introduction text for the main page   | [Default Introduction] |
-| `apiNexus.info.graphDescription` | Description for GraphQL documentation  | [Default GraphQL Desc] |
-| `apiNexus.info.restDescription` | Description for REST documentation      | [Default REST Desc]    |
-
-## REST Configuration
-
-### Schema Configuration
-
-| Variable                | Description                           | Default           |
-|-------------------------|---------------------------------------|-------------------|
-| `apiNexus.rest.title`   | Title for REST documentation          | REST              |
-| `apiNexus.rest.version` | Version of REST documentation         | 2.0.0             |
-| `apiNexus.rest.description` | Description for REST documentation  | [Default REST Desc]|
-| `apiNexus.rest.servers`  | Array of servers for REST API         | [List of servers] |
-
-### GraphQL Configuration
-
-### Schema Configuration
-
-| Variable                  | Description                               | Default           |
-|---------------------------|-------------------------------------------|-------------------|
-| `apiNexus.graphQl.title`  | Title for GraphQL documentation           | GraphQL           |
-| `apiNexus.graphQl.version`| Version of GraphQL documentation          | 2.1.0             |
-| `apiNexus.graphQl.description` | Description for GraphQL documentation | [Default GraphQL Desc] |
-| `apiNexus.graphQl.introspection` | Introspection URL for GraphQL        | [Default Introspection URL] |
-| `apiNexus.graphQl.servers` | Array of servers for GraphQL API         | [List of servers] |
-
-## Usage
-
-- Follow the provided configuration options to customize your API Nexus documentation generation.
-- Set environment variables or provide specific values for authentication and other parameters.
-
-## Notes
-
-- Ensure URLs and credentials are accessible and secure.
-- Update the information in the configuration to match your specific API setup.
-
-
+# Include these lines of code
+const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
+documentApi('/api/my-app/document')
+
+app.get("/health",  async (req, res) => {
+	res.send("server is up");
+});
+
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send("Something went wrong!");
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
+});
+```
+
+-  <font  color="red">**Note** </font> : Adjust the `path` variable to set the base path at which your document will be visible. For example, <font  color="orange">`/api/document` </font>,<font  color="orange"> `/api-project/document`, </font> etc.
+
+
+### **Step 8: Access Document Server**
+
+- You can access the document server at the following URL with the specified base path:
+
+	```bash
+	>`domain:3001/api/my-app/document`
+	```
+-  <font  color="red">**Note**</font>: If you have set the port to 4000, the URL will be accessible at <font  color="orange">`domain:4000/api/my-app/document`</font>.
+
+
+
+## 2. Getting Started With Docker & Nginx
+
+- Steps to setup through docker & nginx to run both ports on your domain
+
+	### Step 1: Create a Dockerfile
+	- Create a docker file in the project root directory
+
+	### Step 2: Docker Configuration
+	- Add the below configuratio to the docker file
+
+	```bash
+	FROM node:16
+	# Set the working directory
+	WORKDIR /app
+	# Copy only the package.json and package-lock.json to leverage Docker cache
+	COPY package*.json ./
+	# Install app dependencies
+	RUN npm install
+	# Build the API documentation (if needed)
+	RUN npm run build-api-documentation
+	# Copy the rest of the application code
+	COPY .  .
+	# Expose the necessary ports
+	EXPOSE 3000
+	EXPOSE 3001
+	# Run the application
+	CMD ["npm", "start"]
+	```
+
+	### Step 3: Nginx Setup
+
+	- Create the below setup for the server proxy using Nginx:
+	```bash
+	server {
+		server_name my-domain;
+		client_max_body_size 1024m;
+		location /api/document {
+		proxy_pass http://my-domain:3004/api/document;
+		proxy_http_version 1.1;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+	}
+
+	location / {
+		proxy_pass http://my-domain:3002;
+		proxy_http_version 1.1;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		}
+	}
+	```
+	-  ### Explanation
+
+	- Let's consider you set the base URL as<font  color="orange">  `/api/document`</font> using the <font  color="red">`documentApi('/api/document')`  </font>configuration in your application.
+
+	- Now, in the Nginx setup, the <font  color="orange">`location /api/document`  </font>block is configured to handle requests for<font  color="red">  `/api/document`.</font> This block uses `proxy_pass` to direct these requests to the document API server, which is assumed to be running on port 3001 and mapped to port 3004 using the Docker command:
+
+		```bash
+		> sudo docker run -it -p 3002:3000 -p 3004:3001 api-nexus
+		```
+	- So, the `proxy_pass` in the Nginx configuration becomes <font  color="orange">`http://my-domain/api/document`</font>.You can handle other base URLs in a similar way by creating additional `location` blocks in the Nginx configuration, allowing you to route different parts of your application to various backend servers based on your requirements. Adjust the port numbers and base URLs accordingly for your specific setup.
+
+## 3. Getting Started With Http-Proxies
+
+- If you prefer not to use Nginx for proxying, follow the steps below to serve the document using the HTTP proxy instead.
+
+	```bash
+	const express = require("express");
+	const app = express();
+	const path = require("path");
+	const { createProxyMiddleware  }  =  require("http-proxy-middleware");
+
+	# Include the API Nexus documentation server
+	const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
+	documentApi('/api/document');
+
+	# Create a proxy middleware for the "/api/document" route
+	const documentProxy = createProxyMiddleware({
+		target:  "http://domain:3001",  //  Replace  with  the  actual  destination  server  URL
+		changeOrigin: true,
+	});
+
+	# Use the proxy middleware for the "/api/document" route
+	app.use("/api/document",  documentProxy);
+
+	app.get("/health",  async (req, res) => {
+		res.send("server is up");
+	});
+
+	app.use((err, req, res, next) => {
+		console.error(err.stack);
+		res.status(500).send("Something went wrong!");
+	});
+
+	const PORT = process.env.PORT || 3000;
+	app.listen(PORT, () => {
+		console.log(`Server is running on port ${PORT}`);
+	});
+	```
+With the above http proxy setup you can access the api-documentation at <font  color="orange">domain:3000/api/document</font>.With the above setup you can access both the API with the same port.
+
+### **Config.yml Options**
+
+| Variable | Default | Description |
+|-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| | <center>**API Nexus**</center> | |
+| <font color="orange">env</font> | ${DOC_ENV} | Specify the environment for documentation (Development, Qa, Staging, Production) |
+| <font color="orange">includeExample</font> | true | Include example (true/false) [default=true] |
+| | <center>**Authentication**</center> | |
+| <font color="orange">documentUser</font> | ${DOC_USER} | Default user is - [documentUser=test] |
+| <font color="orange">documentPassword</font> | ${DOC_PASSWORD} | Default password is - [documentPassword=test@123] |
+| | <center>**Info**</center> | |
+| <font color="orange">title</font> | Sample | Title for the main page [default=Sample] |
+| <font color="orange">logo</font> | [![Logo](https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png)](Default=Logo) | URL for the logo image [default=Logo] |
+| <font color="orange">includeDocumentType</font> | both | Include document type (graph, rest, both) [default=both] |
+| <font color="orange">introduction</font> | Welcome to our comprehensive guide on Application Programming Interfaces (APIs). ... | Introduction for the main page |
+| <font color="orange">graphDescription</font> | Welcome to the GraphQL API Overview, your gateway to the future of data querying ... | Description for GraphQL API [default=some description] |
+| <font color="orange">restDescription</font> | Welcome to the REST API Overview, your comprehensive resource for understanding and working ... | Description for REST API [default=some description] |
+| | <center>**REST**</center> | |
+| <font color="orange">title</font> | REST | [default=Sample] |
+| <font color="orange">version</font> | 2.0.0 | [default=1.0.0] |
+| <font color="orange">description</font> | This comprehensive reference provides detailed information on the GraphQL <i>types</i>, ... | Description for REST API [default=Some description] |
+| | <center>**Servers**</center> | |
+| <font color="orange">url</font> | https://sample-dev.com/api/rest | Server URL for REST API |
+| <font color="orange">env</font> | Development | Environment for the server |
+| <font color="orange">headers</font> | Authorization: <YOUR_TOKEN_HERE> | Headers for the server |
+| | <center>**GraphQL**</center> | |
+| <font color="orange">title</font> | GraphQL | [default=Sample] |
+| <font color="orange">version</font> | 2.1.0 | [default=1.0.0] |
+| <font color="orange">description</font> | This comprehensive reference provides detailed information on the GraphQL <i>types</i>, ... | Description for GraphQL API [default=Some description] |
+| | <center>**GraphQL Introspection**</center> | |
+| <font color="orange">url</font> | https://sample-dev.com/api/graphql | URL for GraphQL introspection [Make sure it is accessible and allowed to access] |
+| <font color="orange">overWriteEachTime</font> | false | Overwrite introspection each time [default=false] |
+| | <center>**GraphQL Servers**</center> | |
+| <font color="orange">url</font> | https://sample-dev.com/api/graphql/dev | Server URL for GraphQL API (Development) |
+| <font color="orange">env</font> | Development | Environment for the server |
+| <font color="orange">headers</font> | Authorization: <YOUR_TOKEN_HERE>, Content-Type: "application/json" | Headers for the server (Development) |
+
+**Note**: You can replace `<YOUR_TOKEN_HERE>` with the actual token. The URLs and other values should be adjusted based on your specific configuration. |

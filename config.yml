@@ -12,7 +12,7 @@ apiNexus:
   # Includes the info for the main page and logo on al the pages
   info:
     title: Sample # [default=Sample]
-    logo: https://i.ibb.co/yXjDLN4/apinexus-high-resolution-logo-black-transparent.png # [default=Logo]
+    logo: https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png # [default=Logo]
     includeDocumentType: both # graph OR rest Or both  [default=both]
     introduction: >
       Welcome to our comprehensive guide on Application Programming Interfaces (APIs). APIs play a crucial role in the world of software development, enabling different applications to communicate with each other and access data and functionality. Whether you're a developer, a business owner, or simply curious about how the digital world works, this webpage is your go-to resource for understanding the fundamental concepts and practical uses of APIs.
