@@ -217,14 +217,14 @@ Node Version => <font  color="red"> 16.0.0</font>
         ```
 	-  ### Explanation
 
-	- Let's consider you set the base URL as<font  color="orange">  `/api/document`</font> using the <font  color="red">`documentApi('/api/document')`  </font>configuration in your application.
+        - Let's consider you set the base URL as<font  color="orange">  `/api/document`</font> using the <font  color="red">`documentApi('/api/document')`  </font>configuration in your application.
 
-	- Now, in the Nginx setup, the <font  color="orange">`location /api/document`  </font>block is configured to handle requests for<font  color="red">  `/api/document`.</font> This block uses `proxy_pass` to direct these requests to the document API server, which is assumed to be running on port 3001 and mapped to port 3004 using the Docker command:
+        - Now, in the Nginx setup, the <font  color="orange">`location /api/document`  </font>block is configured to handle requests for<font  color="red">  `/api/document`.</font> This block uses `proxy_pass` to direct these requests to the document API server, which is assumed to be running on port 3001 and mapped to port 3004 using the Docker command:
 
-		```bash
-		> sudo docker run -it -p 3002:3000 -p 3004:3001 api-nexus
-		```
-	- So, the `proxy_pass` in the Nginx configuration becomes <font  color="orange">`http://my-domain/api/document`</font>.You can handle other base URLs in a similar way by creating additional `location` blocks in the Nginx configuration, allowing you to route different parts of your application to various backend servers based on your requirements. Adjust the port numbers and base URLs accordingly for your specific setup.
+            ```bash
+            > sudo docker run -it -p 3002:3000 -p 3004:3001 api-nexus
+            ```
+        - So, the `proxy_pass` in the Nginx configuration becomes <font  color="orange">`http://my-domain/api/document`</font>.You can handle other base URLs in a similar way by creating additional `location` blocks in the Nginx configuration, allowing you to route different parts of your application to various backend servers based on your requirements. Adjust the port numbers and base URLs accordingly for your specific setup.
 
 ## 3. Getting Started With Http-Proxies
 
@@ -302,4 +302,4 @@ Node Version => <font  color="red"> 16.0.0</font>
 | <font color="orange">env</font> | Development | Environment for the server |
 | <font color="orange">headers</font> | Authorization: <YOUR_TOKEN_HERE>, Content-Type: "application/json" | Headers for the server (Development) |
 
-**Note**: You can replace `<YOUR_TOKEN_HERE>` with the actual token. The URLs and other values should be adjusted based on your specific configuration. |
+**Note**: You can replace `<YOUR_TOKEN_HERE>` with the actual token. The URLs and other values should be adjusted based on your specific configuration.
