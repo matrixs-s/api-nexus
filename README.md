@@ -65,12 +65,12 @@ Node Version => <font  color="red"> 16.0.0</font>
 #### Explanation:
 
 - If authentication is defined in your <font  color="red">*`config.yml`,*  </font> provide the following environment variables:
--  `DOC_USER=test`
--  `DOC_PASSWORD=test`
+    -  `DOC_USER=test`
+    -  `DOC_PASSWORD=test`
 - The default server port is 3001. If you want to use a different port, set it with the <font  color="orange">`DOC_PORT`</font> environment variable:
--  `DOC_PORT=4000`
+    -  `DOC_PORT=4000`
 - Add the environment for which you want to create the documentation:
--  `DOC_ENV=Development`
+    -  `DOC_ENV=Development`
 
 
 ### **Step 4: Update Package.json**
