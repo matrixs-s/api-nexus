@@ -9,7 +9,8 @@
 [![GitHub](https://img.shields.io/github/license/your-username/api-nexus)](https://github.com/your-username/api-nexus/blob/main/LICENSE)
 
 ## Overview
-![Api-nexus](https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png)
+![Api-nexus](https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png) <br />
+
 <font  color="red">**api-nexus**</font> is a powerful tool for effortlessly generating comprehensive API documentation for both RESTful and GraphQL APIs. Whether you are building <font  color="red">**REST APIs**</font> or <font  color="red">**GraphQL schemas**</font>, this tool streamlines the documentation process, ensuring clarity and consistency.
 
 **Required**
@@ -93,18 +94,23 @@ Node Version => <font  color="red"> 16.0.0</font>
 ### **Step 6: Verify Generated Files**
 
 - After running the command, a <font  color="red">  `doc`  </font> folder will be created in the root directory with the following structure:
-
-	**doc**
-	├── build
-	├── dist
-	├── graph
-	│ ├── introspection.json [[Introspection JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/introspection.json)]
-	│ └── graphMetaData.json [[graphMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/graphMetaData.json)]
-	│
-	└── rest
-		└── restMetaData.json [[restMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/restMetaData.json)]
+    ```bash
+        doc
+        ├── build
+        ├── dist
+        ├── graph
+        │ ├── introspection.json
+        │ └── graphMetaData.json
+        │
+        └── rest
+            └── restMetaData.json
+    ```
 
 -  <font  color="red">**Note**</font>: These files are auto-generated, and renaming them may cause issues in document generation.You can also create this folder structure in the root project directory manual to run the document.
+
+- [[Introspection JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/introspection.json)]
+- [[graphMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/graphMetaData.json)]
+- [[restMetaData JSON Example here](https://matrixs-s@github.com/matrixs-s/api-nexus/blob/master/examples/restMetaData.json)]
 
 
 ### **Step 7: Include Code Lines in Your Project**
@@ -257,7 +263,7 @@ Node Version => <font  color="red"> 16.0.0</font>
 		console.log(`Server is running on port ${PORT}`);
 	});
 	```
-With the above http proxy setup you can access the api-documentation at <font  color="orange">domain:3000/api/document</font>.With the above setup you can access both the API with the same port.
+- With the above http proxy setup you can access the api-documentation at <font  color="orange">domain:3000/api/document</font>.With the above setup you can access both the API with the same port.
 
 ### **Config.yml Options**
 
