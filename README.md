@@ -32,10 +32,10 @@ Node Version => <font  color="red"> 16.0.0</font>
 ## Documentation View
 
 <p  align="center">
-<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/login-page.png"  alt="Login Page"  width="400"  height="260"/>
-<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/landing-page.png"  alt="Landing Page"  width="400"  height="260"/>
-<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/rest-apis.png"  alt="Rest Page"  width="400"  height="260"/>
-<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/graph-apis.png"  alt="Graph Page"  width="400"  height="260"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/login-page.png"  alt="Login Page"  width="350"  height="230"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/landing-page.png"  alt="Landing Page"  width="350"  height="230"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/rest-apis.png"  alt="Rest Page"  width="350"  height="230"/>
+<img  src="https://github.com/matrixs-s/api-nexus/raw/master/public/images/graph-apis.png"  alt="Graph Page"  width="350"  height="230"/>
 </p>
 
 ## 1. Getting Started
