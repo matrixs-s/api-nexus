@@ -123,7 +123,7 @@ Node Version => <font  color="red"> 16.0.0</font>
     const path = require("path");
 
     # Include these lines of code
-    const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
+    const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.cjs"));
     documentApi('/api/my-app/document')
 
     app.get("/health",  async (req, res) => {
@@ -236,8 +236,12 @@ Node Version => <font  color="red"> 16.0.0</font>
 	const path = require("path");
 	const { createProxyMiddleware  }  =  require("http-proxy-middleware");
 
-	# Include the API Nexus documentation server
-	const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.js"));
+	# Include the API Nexus documentation server (Load the .cjs as it is supported in both commonJs & ES)
+    # If you are using ES module, you  need to use the import statement instead of the require.
+    # import path from 'path';
+    # import documentApi from './doc/build/server.cjs';
+
+	const documentApi = require(path.join(__dirname,  "doc",  "build",  "server.cjs"));
 	documentApi('/api/document');
 
 	# Create a proxy middleware for the "/api/document" route

@@ -18,7 +18,7 @@ const allowedStaticFiles = [
 ];
 
 const server = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.DOC_PORT || 3001;
 server.set("trust proxy", 1);
 server.use(
   session({
