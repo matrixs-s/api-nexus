@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Row, Card, Button } from "react-bootstrap";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
+import parse from "html-react-parser";
 import { useDocumentContext } from "../appContext";
 import "../css/App.css";
 
@@ -98,7 +99,9 @@ export default function MainPage({ basePath }) {
                 className="card-text cardText"
                 style={{ textAlign: "justify" }}
               >
-                <div className="cardText">{introduction}</div>
+                <div className="cardText">
+                  <div>{parse(introduction)}</div>
+                </div>
                 <Row>
                   {includeDocumentType === "both" ||
                   includeDocumentType === "graph" ? (
@@ -111,7 +114,7 @@ export default function MainPage({ basePath }) {
                     >
                       {renderCard(
                         "GraphQL API",
-                        graphDescription,
+                        <div>{parse(graphDescription)}</div>,
                         "graphql_api"
                       )}
                     </div>
@@ -125,7 +128,7 @@ export default function MainPage({ basePath }) {
                           : "col-md-6"
                       }
                     >
-                      {renderCard("Rest API", restDescription, "rest_api")}
+                      {renderCard("Rest API", <div>{parse(restDescription)}</div>, "rest_api")}
                     </div>
                   ) : null}
                 </Row>

@@ -15,7 +15,7 @@ apiNexus:
     logo: https://github.com/matrixs-s/api-nexus/raw/master/public/images/api-nexus-logo.png # [default=Logo]
     includeDocumentType: both # graph OR rest Or both  [default=both]
     introduction: >
-      Welcome to our comprehensive guide on Application Programming Interfaces (APIs). APIs play a crucial role in the world of software development, enabling different applications to communicate with each other and access data and functionality. Whether you're a developer, a business owner, or simply curious about how the digital world works, this webpage is your go-to resource for understanding the fundamental concepts and practical uses of APIs.
+      <p>Welcome to our comprehensive guide on Application Programming Interfaces (APIs). APIs play a crucial role in the world of software development, enabling different applications to communicate with each other and access data and functionality. Whether you're a developer, a business owner, or simply curious about how the digital world works, this webpage is your go-to resource for understanding the fundamental concepts and practical uses of APIs.<p />
     graphDescription: Welcome to the GraphQL API Overview, your gateway to the future of data querying and manipulation in the world of software development # [default=some description]
     restDescription: Welcome to the REST API Overview, your comprehensive resource for understanding and working with Representational State Transfer (REST) APIs # [default=some description]
 
