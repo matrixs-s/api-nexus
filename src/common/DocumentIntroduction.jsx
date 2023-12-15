@@ -57,8 +57,9 @@ const DocumentIntroduction = ({ isGraph }) => {
           <Row className="text-justify">
             <Col md={6}>
               <Card.Title>
-                <h1 style={{ "textAlign": "left" }}>
-                  <a href="#">{title}</a> API References
+                <h1 style={{ textAlign: "left" }}>
+                  <strong style={{ color: "#0066cc" }}>{title} </strong> API
+                  References
                 </h1>
               </Card.Title>
               <div className="card-text">
@@ -99,9 +100,11 @@ const DocumentIntroduction = ({ isGraph }) => {
                   "Headers",
                   endPoints?.headers.map(
                     (header) =>
-                      `# ${header?.comment ?? "Use login token [Default]"}\n - ${
-                        header?.name ?? "Authorization [Default]"
-                      }: ${header?.example ?? "<YOUR_TOKEN_HERE> [Default]"}`
+                      `# ${
+                        header?.comment ?? "Use login token [Default]"
+                      }\n - ${header?.name ?? "Authorization [Default]"}: ${
+                        header?.example ?? "<YOUR_TOKEN_HERE> [Default]"
+                      }`
                   )
                 )}
             </Col>

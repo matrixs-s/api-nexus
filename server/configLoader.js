@@ -292,15 +292,15 @@ const processConfiguration = async (configFilePath) => {
     };
 
     const {
-      apiNexus: { graphql = {} },
+      apiNexus: { graphQl = {} },
     } = jsonConfiguration;
 
     const appContext = {
-      introspection: graphql?.introspection?.url
+      introspection: graphQl?.introspection?.url
         ? await loadIntrospectionFromUrl(
-            graphql?.introspection?.url,
+          graphQl?.introspection?.url,
             "graph",
-            graphql?.introspection?.overWriteEachTime ?? false
+            graphQl?.introspection?.overWriteEachTime ?? false
           )
         : await loadMetaDataFromFile(
             "graph",

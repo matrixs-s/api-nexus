@@ -74,6 +74,7 @@ const loadRoutes = (basePath) => {
         await configLoader(path.join(process.cwd(), "config.yml")),
         {},
       ];
+
       appContext.hasSessionData = req?.session?.isLoggedIn || false;
       appContext.basePath = server?.locals?.basePath ?? null;
       const app = (
@@ -96,10 +97,19 @@ const loadRoutes = (basePath) => {
         <head>
           <meta charset="utf-8" />
           <title>API Documentation</title>
+          <link id="dynamicFavicon" rel="icon" type="image/x-icon" href="">
           <script>
             if (!window.location.href.endsWith('/')) {
               window.location.href = window.location.href + '/';
             }
+            // Get the link element by ID
+            var faviconLink = document.getElementById('dynamicFavicon');
+
+            // Your dynamic URL (replace this with your dynamic logic)
+            var dynamicUrl = "${appContext?.config?.apiNexus?.info?.favicon || ''}";
+
+            // Set the href attribute to the dynamic URL
+            faviconLink.href = dynamicUrl;
           </script>
           <link type="text/css" rel="stylesheet" href="bundle.css" />
           <link type="text/css" rel="stylesheet" href="bootstrap-bundle.min.css" />
