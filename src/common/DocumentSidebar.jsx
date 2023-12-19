@@ -11,14 +11,21 @@ const DocumentSidebar = ({ isGraph, listOptions }) => {
   const [operationType, setOperationType] = useState(null);
   const [outputType, setOutputType] = useState(null);
   const listRef = useRef(null);
+  const typeRef = useRef(null);
 
   const handleListItemClick = useCallback((index, apiNames, expandedItem) => {
-    if (expandedItem) {
+    if (expandedItem === "dataTypes") {
+      setOutputType({ [expandedItem]: apiNames });
+      const typeItem = typeRef?.current?.children?.[index] ?? null;
+      if (typeItem) {
+        typeItem.scrollIntoView({ behavior: "auto", block: "start" });
+      }
+    } else {
       setOperationType({ [expandedItem]: apiNames });
-    }
-    const listItem = listRef?.current?.children?.[index] ?? null;
-    if (listItem) {
-      listItem.scrollIntoView({ behavior: "auto", block: "start" });
+      const listItem = listRef?.current?.children?.[index] ?? null;
+      if (listItem) {
+        listItem.scrollIntoView({ behavior: "auto", block: "start" });
+      }
     }
   }, []);
 
@@ -29,11 +36,14 @@ const DocumentSidebar = ({ isGraph, listOptions }) => {
         return dataType === typeName;
       }
     );
-    setOperationType(outputType);
+    setOperationType((prevState) => ({
+      ...prevState,
+      outputType,
+    }));
     setTimeout(() => {
-      const listItem = listRef?.current?.children?.[result] ?? null;
-      if (listItem) {
-        listItem.scrollIntoView({ behavior: "auto", block: "start" });
+      const typeItem = typeRef?.current?.children?.[result] ?? null;
+      if (typeItem) {
+        typeItem.scrollIntoView({ behavior: "auto", block: "start" });
       }
     }, 0);
   };
@@ -122,7 +132,7 @@ const DocumentSidebar = ({ isGraph, listOptions }) => {
               <GraphTypes
                 apiContent={Object.values(outputType)[0]}
                 type={Object.keys(outputType)[0]}
-                focusRef={listRef}
+                focusRef={typeRef}
               />
             ) : null}
           </div>

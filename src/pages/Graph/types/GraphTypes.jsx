@@ -4,7 +4,7 @@ import GraphTypeParams from "./GraphTypeParams";
 import GraphTypeResponse from "./GraphTypeResponse";
 import { useDocumentContext } from "../../../appContext"; // Adjust the path as needed
 
-export default GraphTypes = ({ apiContent, type }) => {
+export default GraphTypes = ({ apiContent, type, focusRef }) => {
   const { graphMetaJson: customDataset = {} } = useDocumentContext();
 
   const ApiDescription = ({ apiBlock }) => {
@@ -45,10 +45,13 @@ export default GraphTypes = ({ apiContent, type }) => {
           </h5>
         </div>
       ) : null}
-      <div style={{ position: "relative", marginTop: "15px" }}>
+      <div style={{ position: "relative", marginTop: "15px" }} ref={focusRef}>
         {Object.keys(apiContent || {}).length
           ? Object.keys(apiContent || {}).map((typeDataset, index) => (
-              <div key={`type_${index}`} style={{ textAlign: "left" }}>
+              <div
+                key={`type_${index}`}
+                style={{ textAlign: "left" }}
+              >
                 <Card>
                   <Card.Body>
                     <Row>
