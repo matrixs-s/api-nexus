@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const TreeNode = ({ label, data, expanded = false }) => {
   const [isExpanded, setIsExpanded] = useState(expanded);
-
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
   };
@@ -15,7 +14,7 @@ const TreeNode = ({ label, data, expanded = false }) => {
       >
         {isExpanded ? "▼" : "►"} {label}
       </div>
-      {isExpanded && (
+      {isExpanded && data !== null ? (
         <ul className="node-list">
           {Object.keys(data).map((key) => (
             <li key={key}>
@@ -27,8 +26,9 @@ const TreeNode = ({ label, data, expanded = false }) => {
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </div>
   );
 };
+
 export default TreeNode;
