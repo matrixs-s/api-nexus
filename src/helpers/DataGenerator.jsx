@@ -74,7 +74,7 @@ const parseNestedData = (schema) => {
     items: schemaItems,
     type: schemaType,
     value: schemaValue,
-  } = schema;
+  } = schema || { value: {} };
 
   const generateArrayValues = (items) =>
     Array.from({ length: items?.length }, (_, index) =>
