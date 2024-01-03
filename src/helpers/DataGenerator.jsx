@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-const addRandomValue = (randomDataType) => {
+const addRandomValue = (type) => {
   switch (type) {
     case "name":
       return faker.person.firstName();
