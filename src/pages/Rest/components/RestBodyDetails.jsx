@@ -13,9 +13,11 @@ const RestBodyDetails = ({ apiBlock }) => {
       <h5>
         <i style={{ color: "red" }}>Body :-</i>
       </h5>
-      <SyntaxHighlighter language="json" style={vscDarkPlus}>
-        {JSON.stringify(bodyDataSet || {}, null, 2)}
-      </SyntaxHighlighter>
+      <div style={{ maxHeight: "250px", overflow: "auto" }}>
+        <SyntaxHighlighter language="json" style={vscDarkPlus}>
+          {JSON.stringify(bodyDataSet || {}, null, 2)}
+        </SyntaxHighlighter>
+      </div>
     </div>
   ) : null;
 };

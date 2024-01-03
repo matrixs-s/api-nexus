@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Card } from "react-bootstrap";
+import parse from "html-react-parser";
 import TreeNode from "./RestParamsDetails";
 import RestUrlDetails from "./RestUrlDetails";
 import RestHeadersDetails from "./RestHeadersDetails";
@@ -27,8 +28,8 @@ const RestMainContent = ({ apiContent, type, focusRef }) => {
             <i className="rest-heading">Description :-</i>
           </h5>
         </div>
-        <div>
-          <span>{description}</span>
+        <div className="text-justify">
+          <span>{parse(description)}</span>
         </div>
       </div>
     );
